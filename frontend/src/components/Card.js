@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext.js";
+import { useContext } from 'react';
+import CurrentUserContext from '../contexts/CurrentUserContext.js';
 
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = useContext(CurrentUserContext);
@@ -18,13 +18,13 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 
   const isOwn = card.owner._id === currentUser._id;
   const cardDeleteButtonVisabilityAttribute = {
-    visibility: isOwn ? "visible" : "hidden",
+    visibility: isOwn ? 'visible' : 'hidden',
   };
 
   const isLiked = card.likes.some((like) => like._id === currentUser._id);
 
   const cardLikeButtonClassName = `element__button-like ${
-    isLiked && "element__button-like_active"
+    isLiked && 'element__button-like_active'
   }`;
 
   return (
