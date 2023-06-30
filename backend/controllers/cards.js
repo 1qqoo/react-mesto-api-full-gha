@@ -78,11 +78,11 @@ const likeCard = (req, res, next) => {
       { [likeMethod]: { likes: req.user._id } },
       { new: true },
     )
+    .populate(['owner', 'likes'])
     .orFail(() => {
       throw new NotFoundError('Карточка с указанным _id не найдена');
     })
-    .populate(['owner', 'likes'])
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err instanceof CastError) {
         return next(

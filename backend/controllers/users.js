@@ -79,7 +79,7 @@ const updateUser = (req, res, next) => {
       { new: true, runValidators: true },
     )
     .orFail(() => next(new NotFoundError('NotFound')))
-    .then((user) => res.send({ user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err instanceof ValidationError) {
         return next(
@@ -100,7 +100,7 @@ const updateUserAvatar = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден');
     })
-    .then((user) => res.send({ user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err instanceof ValidationError) {
         return next(
