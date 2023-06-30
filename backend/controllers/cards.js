@@ -10,6 +10,7 @@ const {
 const getCards = (req, res, next) => {
   cardModel
     .find({})
+    .populate(['owner', 'likes'])
     .then((cards) => res.send(cards))
     .catch(next);
 };
@@ -23,7 +24,11 @@ const createCard = (req, res, next) => {
       link,
       owner,
     })
-    .then((card) => res.status(ERROR_CODE.CREATED).send(card))
+    .then((card) =>
+      card
+        .populate('owner')
+        .then((popCard) => res.status(ERROR_CODE.CREATED).send(popCard)),
+    )
     .catch((err) => {
       if (err instanceof ValidationError) {
         return next(
@@ -76,6 +81,7 @@ const likeCard = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Карточка с указанным _id не найдена');
     })
+    .populate(['owner', 'likes'])
     .then((card) => res.send({ data: card }))
     .catch((err) => {
       if (err instanceof CastError) {
