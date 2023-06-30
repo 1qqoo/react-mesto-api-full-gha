@@ -12,6 +12,6 @@
 
 IP 51.250.1.17
 
-Frontend http://dmitro-mesto.nomoreparties.sbs:
+Frontend https://dmitro-mesto.nomoreparties.sbs:
 
-Backend http://api.dmitro-mesto.nomoreparties.sbs:
+Backend https://api.dmitro-mesto.nomoreparties.sbs:
