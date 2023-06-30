@@ -73,9 +73,9 @@ function App() {
       });
   }, [token, isLoggedIn, navigate]);
 
-  const registerUser = (email, password) => {
+  const registerUser = (userData) => {
     api
-      .registerUser({ email, password })
+      .registerUser(userData)
       .then(() => {
         setIsOpenInfoTooltip(true);
         setIsRegister({
