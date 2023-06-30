@@ -1,0 +1,9 @@
+.elements-container {
+  margin: 51px auto 66px;
+}
+
+@media screen and (max-width: 700px) {
+  .elements-container {
+    margin: 36px auto 50px;
+  }
+}

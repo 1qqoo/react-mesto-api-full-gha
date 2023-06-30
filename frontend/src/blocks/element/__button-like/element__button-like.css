@@ -1,0 +1,14 @@
+.element__button-like {
+  background: url(../../../images/element-like.svg);
+  background-size: 22px 19px;
+  background-repeat: no-repeat;
+  min-width: 22px;
+  min-height: 19px;
+  margin: 23px 0 0;
+  cursor: pointer;
+  border: none;
+}
+
+.element__button-like:hover {
+  opacity: 0.5;
+}
